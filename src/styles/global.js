@@ -19,11 +19,6 @@ export const GlobalStyle =  createGlobalStyle`
     --grey-0: #F8F9FA;
     --success: #3FE864;
     --negative: #E83F5B;
-
-    --title: 16px bold;
-    --headline: 12px;
-    --headline-bold: 12px bold;
-    --headline-italic: 12px italic;
 }
 
 body{
@@ -34,10 +29,6 @@ body{
 body, input, button{
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-}
-
-h1, h2, h3, h4{
-    font: var(--title);
 }
 
 button{

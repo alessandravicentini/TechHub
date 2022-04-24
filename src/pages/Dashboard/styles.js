@@ -1,49 +1,144 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
+export const Nav = styled.nav`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+
+background: var(--grey-4);
+
+width: 100vw;
+height: 70px;
+
+position: sticky;
+top: 0;
+
+padding: 0px 20%;
+border-bottom: 1px solid var(--grey-3);
+
+> button{
+  padding: 5px 15px;
+  margin-bottom: 20px;
+}
+
+@media(max-width: 767px){
+  padding: 0px 15px;
+
+  >img{
+    width: 40%;
+    max-width: 145px;
+  }
+}
+`
+
+export const Header = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+
+width: 100vw;
+height: 100px;
+
+padding: 0px 20%;
+border-bottom: 1px solid var(--grey-3);
+
+> p{
+  color: var(--grey-1);
+  font-size: 12px;
+}
+
+@media(max-width: 767px){
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: left;
 
-  padding: 0 38px;
-`;
+  height: 120px;
 
-export const InputContainer = styled.form`
-  flex: 1;
+  padding: 0px 15px;
 
-  margin-top: 32px;
-  padding: 0 38px;
-
-  section {
-    display: flex;
-
-    > div {
-      max-width: 80%;
-
-      flex: 1;
-
-      margin-right: 16px;
-    }
-
-    button {
-      max-width: 260px;
-      height: 60px;
-
-      margin: 0;
-    }
+  > h2, p{
+    width: 100%;
   }
+}
+`
+
+export const Container = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+width: 100vw;
+
+padding: 0 20%;
+
+@media(max-width: 767px){
+  padding: 0px 15px;
+}
 `;
 
-export const TasksContainer = styled.div`
-  padding: 0 38px;
-  margin-top: 32px;
 
-  display: flex;
-  flex-wrap: wrap;
+export const TechInfo = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
 
-  div {
-    margin-top: 16px;
-    margin-right: 32px;
-  }
+width: 100%;
+
+> button{
+  width: 30px;
+
+  margin-bottom: 15px;
+
+  font-size: large;
+}
 `;
+
+export const TechContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+
+width: 100%;
+min-height: 20vh;
+height: max-content;
+
+padding: 15px;
+
+background: var(--grey-3);
+
+border-radius: 4px;
+
+`
+
+export const TechCard = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+
+width: 100%;
+height: 50px;
+
+margin: 10px 0;
+padding: 0 15px;
+
+border-radius: 4px;
+
+background: var(--grey-4);
+
+transition: 0.5s;
+
+> span{
+  font-size: 12px;
+  color: var(--grey-1)
+}
+
+&:hover{
+  background: var(--grey-2);
+}
+`

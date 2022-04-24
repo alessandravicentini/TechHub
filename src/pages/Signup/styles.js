@@ -1,20 +1,12 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-import SignupImage from "../../assets/images/signup.png";
 
 export const Container = styled.div`
   height: 100vh;
 
   display: flex;
-  align-items: stretch;
-`;
-
-export const Background = styled.div`
-  @media (min-width: 1024px) {
-    flex: 1;
-    background: url(${SignupImage}) no-repeat center var(--black);
-    background-size: contain;
-  }
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Content = styled.div`
@@ -23,14 +15,37 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 100%;
-  max-width: 700px;
+  width: 90%;
+  max-width: 370px;
 `;
 
-const appearFromRight = keyframes`
+export const Header = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+
+width: 100%;
+
+> img{
+  width: 40%;
+  max-width: 100px;
+
+  margin: 10px 0px 0px 5px;
+}
+
+> button{
+  width: 20%;
+
+  margin-bottom: 10px;
+}
+
+`
+
+const appearFromLeft = keyframes`
 from{
     opacity: 0;
-    transform: translateX(50px)
+    transform: translateX(-50px)
 }
 
 to{
@@ -45,30 +60,40 @@ export const AnimationContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  animation: ${appearFromRight} 1s;
+  width: 100%;
 
-  form {
-    margin: 88px 0;
+  animation: ${appearFromLeft} 1s;
 
-    width: 340px;
+  form{
+    padding: 20px 20px;
+
+    width: 100%;
+
+    background: var(--grey-3);
 
     text-align: center;
 
-    h1 {
-      margin-bottom: 32px;
+    box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+
+    h1{
+      margin-bottom: 20px;
+
+      font-size: 16px;
     }
 
-    > div {
+    p{
+      color: var(--grey-1);
+      font-size: 12px;
+    }
+
+    > div{
       margin-top: 16px;
     }
 
-    p {
-      margin-top: 8px;
-
-      a {
-        font-weight: bold;
-        color: var(--orange);
-      }
+    button{
+      width: 100%;
     }
+
   }
 `;

@@ -1,8 +1,8 @@
 import { Container } from "./style";
 
-export const Button = ({ children }) => {
+export const Button = ({ children, greySchema = false, size = false, ...rest }) => {
   return (
-    <Container type="button">
+    <Container greySchema={greySchema} size={size} type="button" {...rest}>
       {children}
     </Container>
   );

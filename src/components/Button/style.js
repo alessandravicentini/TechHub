@@ -1,22 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  background: ${(props) => (props.whiteSchema ? "#f5f5f5" : "#0c0d0d")};
+  background: ${(props) => (props.greySchema ? "#868E96" : "#FF577F")};
+  background: ${(props) => (props.size ? "#212529" : "")};
 
-  color: ${(props) => (props.whiteSchema ? "#0c0d0d" : "#f5f5f5")};
-  font-family: "Roboto Mono", monospace;
+  color: var(--grey-0);
+  font-size: ${(props) => (props.size ? "11px" : "14px")};
 
-  height: 48px;
-  width: 100%;
+  height: ${(props) => (props.size ? "32px" : "48px")};
 
-  border-radius: 8px;
-  border: 2px solid var(--black);
+  border-radius: ${(props) => (props.size ? "4px" : "8px")};
+  border: 0;
 
-  margin-top: 16px;
+  margin-top: 20px;
 
   transition: 0.5s;
 
   :hover {
-    border: 2px solid var(--orange);
+    background: ${(props) => (props.greySchema ? "#343B41" : "#FF427F")};
+    background: ${(props) => (props.size ? "#343B41" : "")};
+
+    font-size: ${(props) => (props.size ? "" : "calc(105%)")};
   }
+  
 `;

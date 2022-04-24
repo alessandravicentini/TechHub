@@ -1,20 +1,12 @@
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-import LoginImage from "../../assets/images/login.png";
 
 export const Container = styled.div`
   height: 100vh;
 
   display: flex;
-  align-items: stretch;
-`;
-
-export const Background = styled.div`
-  @media (min-width: 1024px) {
-    flex: 1;
-    background: url(${LoginImage}) no-repeat center var(--black);
-    background-size: contain;
-  }
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Content = styled.div`
@@ -23,11 +15,18 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 100%;
-  max-width: 700px;
+  width: 90%;
+  max-width: 370px;
+
+  > img{
+    width: 40%;
+    max-width: 100px;
+
+    margin: 20px auto;
+  }
 `;
 
-const appearFromLeft = keyframes`
+const appearFromRight = keyframes`
 from{
     opacity: 0;
     transform: translateX(-50px)
@@ -45,30 +44,42 @@ export const AnimationContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  animation: ${appearFromLeft} 1s;
+  width: 100%;
 
-  form {
-    margin: 88px 0;
+  animation: ${appearFromRight} 1s;
 
-    width: 340px;
+  form{
+    padding: 20px 20px;
+
+    width: 100%;
+
+    background: var(--grey-3);
 
     text-align: center;
 
-    h1 {
-      margin-bottom: 32px;
+    box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+
+    h1{
+      margin-bottom: 20px;
+
+      font-size: 16px;
     }
 
-    > div {
+    p{
+      color: var(--grey-1);
+      font-size: 12px;
+
+      margin-top: 15px;
+    }
+
+    > div{
       margin-top: 16px;
     }
 
-    p {
-      margin-top: 8px;
-
-      a {
-        font-weight: bold;
-        color: var(--orange);
-      }
+    button{
+      width: 100%;
     }
+
   }
 `;

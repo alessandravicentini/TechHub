@@ -12,25 +12,13 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  max-width: 400px;
+  width: 200px;
 
-  div {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: space-between;
 
-    margin-top: 1rem;
-
-    button + button {
-      margin-left: 1rem;
-    }
+  button{
+    width: 45%;
   }
 
-  span {
-    margin-bottom: 2rem;
-
-    font-size: 1.8rem;
-
-    flex-wrap: wrap;
-  }
 `;
