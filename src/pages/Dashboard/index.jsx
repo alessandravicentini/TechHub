@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+
 import logo from '../../assets/images/logo.png'
+
 import { Button } from '../../components/Button'
+import { Modal } from '../Modal';
 
 import { Container, Header, Nav, TechCard, TechContainer, TechInfo } from "./styles";
 
 export const Dashboard = ({ userAuth, setUserAuth }) => {
 
+  const [modal, setModal] = useState(false)
+  // const [modalEdit, setModalEdit] = useState(false)
+  
   const [user] = useState(JSON.parse(localStorage.getItem("@Kenziehub:user")) || "")
 
   if (!userAuth) {
@@ -29,9 +35,10 @@ export const Dashboard = ({ userAuth, setUserAuth }) => {
    <Container>
      <TechInfo>
        <h3>Tecnologias</h3>
-       <Button size>+</Button>
+       <Button size onClick={() => setModal(true)}>+</Button>
      </TechInfo>
      <TechContainer>
+       <Modal modal={modal} setModal={setModal}/>
        <TechCard><p>tech</p><span>nivel</span></TechCard>
        <TechCard><p>tech</p><span>nivel</span></TechCard>
      </TechContainer>

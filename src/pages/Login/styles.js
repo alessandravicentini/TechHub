@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components'
 
 export const Container = styled.div`
   height: 100vh;

@@ -21,6 +21,20 @@ export const GlobalStyle =  createGlobalStyle`
     --negative: #E83F5B;
 }
 
+:root{
+    --toastify-color-success: var(--success);
+    --toastify-color-error: var(--negative);
+    --toastify-font-family: 'Inter', sans-serif;
+}
+
+.Toastify__toast {
+    background: var(--grey-2);
+
+    color: var(--grey-0);
+    font-size: 14px;
+}
+
+
 body{
     background: var(--grey-4);
     color: var(--grey-0);
