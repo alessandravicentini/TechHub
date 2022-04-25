@@ -1,18 +1,19 @@
 import { AnimationContainer, Container, Content, Header } from "./styles";
+import logo from "../../assets/images/logo.png"
 
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import { Select } from "../../components/Select";
 import { api } from "../../services/api";
-import logo from "../../assets/images/logo.png"
-import { RiEyeCloseLine } from 'react-icons/ri'
 
+import { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { toast } from "react-toastify";
-import { Select } from "../../components/Select";
-import { useState } from "react";
+import { RiEyeCloseLine } from 'react-icons/ri'
 
 
 export const Signup = ({userAuth}) => {
@@ -28,7 +29,7 @@ export const Signup = ({userAuth}) => {
     password: yup
       .string()
       .required("Campo obrigatório")
-      .min(8, "Mínimo 8 caracteres"),
+      .min(6, "Mínimo 6 caracteres"),
     passwordConfirmation: yup
       .string()
       .required("Campo obrigatório")
@@ -53,16 +54,16 @@ export const Signup = ({userAuth}) => {
     return history.push(path)
   }
 
-  const onSubmitFunction = ({ name, email, password }) => {
-    const user = { name, email, password };
+  const onSubmitFunction = ({ name, email, password, select }) => {
+    const user = { email, password, name, bio: "-", contact: "-", course_module: select };
 
     api
-      .post("/user/register", user)
+      .post("/users", user)
       .then((_) => {
         toast.success("Conta criada com sucesso!");
         return history.push("/login");
       })
-      .catch((err) => toast.error("Erro ao criar a conta, tente outro email"));
+      .catch((err) => toast.error("Ops! Algo deu errado"));
   };
 
   if (userAuth) {

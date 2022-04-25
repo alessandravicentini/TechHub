@@ -16,9 +16,10 @@ export const Select = ({
       <InputContainer haveError={!!error}>
         <select {...register(name)} {...rest}>
             <option value="" disabled selected hidden></option>
-            <option value="primeiro-modulo">Primeiro Módulo</option>
-            <option value="segundo-modulo">Segundo Módulo</option>
-            <option value="terceiro-modulo">Terceiro Módulo</option>
+            <option value="Primeiro módulo (Introdução ao Frontend)">Primeiro Módulo</option>
+            <option value="Segundo módulo (Frontend Avançado)">Segundo Módulo</option>
+            <option value="Terceiro módulo (Introdução ao Backend)">Terceiro Módulo</option>
+            <option value="Quarto módulo (Backend Avançado)">Quarto Módulo</option>
         </select>
       </InputContainer>
     </Container>
