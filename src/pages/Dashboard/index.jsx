@@ -34,7 +34,6 @@ export const Dashboard = ({ userAuth, setUserAuth }) => {
 
   useEffect(() => {
     loadTechs()
-    // console.log(techs)
   })
 
   if (!userAuth) {

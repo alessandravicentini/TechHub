@@ -47,6 +47,7 @@ export const Signup = ({userAuth}) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const [passwordVisible, setPasswordVisible] = useState(false)
+  const [passwordConfVisible, setPasswordConfVisible] = useState(false)
 
   const history = useHistory();
 
@@ -113,9 +114,9 @@ export const Signup = ({userAuth}) => {
               label="Confirmar senha"
               placeholder="Digite novamente sua senha"
               icon={RiEyeCloseLine}
-              type={passwordVisible ? "text" : "password"}
-              passwordVisible={passwordVisible}
-              setPasswordVisible={setPasswordVisible}
+              type={passwordConfVisible ? "text" : "password"}
+              passwordVisible={passwordConfVisible}
+              setPasswordVisible={setPasswordConfVisible}
             />
             <Select
               register={register}
