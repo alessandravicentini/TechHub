@@ -24,7 +24,6 @@ export const Login = ({userAuth, setUserAuth}) => {
     password: yup
       .string()
       .required("Campo obrigatório")
-      .min(8, "Mínimo 8 caracteres"),
   });
 
   const {
@@ -43,7 +42,7 @@ export const Login = ({userAuth, setUserAuth}) => {
 
   const onSubmitFunction = (data) => {
     api
-      .post("/user/login", data)
+      .post("/sessions", data)
       .then((response) => {
         const { token, user } = response.data;
         localStorage.setItem("@Kenziehub:token", JSON.stringify(token));

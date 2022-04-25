@@ -1,19 +1,30 @@
+import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
 import { Button } from '../../components/Button'
 
 import { Container, Header, Nav, TechCard, TechContainer, TechInfo } from "./styles";
 
-export const Dashboard = () => {
+export const Dashboard = ({ userAuth, setUserAuth }) => {
+
+  const [user] = useState(JSON.parse(localStorage.getItem("@Kenziehub:user")) || "")
+
+  if (!userAuth) {
+    return <Redirect to="/login" />;
+  }
 
   return (
    <>
    <Nav>
     <img src={logo} alt="" />
-    <Button size>Sair</Button>
+    <Button size onClick={() => {
+      localStorage.clear();
+      setUserAuth("")
+    }}>Sair</Button>
    </Nav>
    <Header>
-     <h2>olá, kenzinho</h2>
-     <p>primeiro módulo</p>
+     <h2>Olá, {user.name}</h2>
+     <p>{user.course_module}</p>
    </Header>
    <Container>
      <TechInfo>
