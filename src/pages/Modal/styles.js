@@ -104,18 +104,6 @@ to{
 }
 `;
 
-const disappear = keyframes`
-from{
-    opacity: 1;
-    transform: translateY(0px)
-}
-
-to{
-    opacity: 0;
-    transform: translateY(-50px)
-}
-`
-
 export const AnimationContainer = styled.div`
 
 animation: ${appearFromTop} 1s;
@@ -130,11 +118,5 @@ margin: 20% ;
 width: 90%;
 max-width: 370px;
 height: 370px;
-`
-
-export const Disappear = styled.div`
-
-animation: ${disappear} 1s;
-
 `
 
