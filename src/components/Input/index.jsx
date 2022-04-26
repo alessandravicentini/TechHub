@@ -18,7 +18,7 @@ export const Input = ({
 
       <InputContainer haveError={!!error}>
         <input {...register(name)} {...rest} />
-        {Icon && <Icon size={20} onClick={() => setPasswordVisible(!passwordVisible)}/>}
+        {Icon && <Icon size={20} onMouseDown={() => setPasswordVisible(!passwordVisible)} onMouseUp={() => setPasswordVisible(!passwordVisible)}/>}
       </InputContainer>
     </Container>
   );
