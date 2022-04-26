@@ -6,7 +6,7 @@ flex-direction: column;
 
 position: absolute;
 
-width: 90%;
+width: 100%;
 max-width: 370px;
 height: 370px;
 
