@@ -1,4 +1,4 @@
-import { AnimationContainer, Container, Content, Header } from "./styles"
+import { AnimationContainer, Container, Content, Header, DisappearContainer } from "./styles"
 
 import { Button } from "../../components/Button"
 import { Input } from "../../components/Input"
@@ -16,7 +16,6 @@ export const Modal = ({ modal, setModal }) => {
 
     const { register, handleSubmit } = useForm()
 
-
     const onSubmitFunction = ({ name, select }) => {
         const tech = { title: name, status: select }
 
@@ -33,29 +32,58 @@ export const Modal = ({ modal, setModal }) => {
         .catch((error) => toast.error("Ops! Algo deu errado"))
     }
 
-    return modal ? (
-    <AnimationContainer modal={modal}>
-       <Container>
-           <Header>
-               <span>Cadastrar Tecnologia</span>
-               <Button size onClick={() => setModal(false)}>X</Button>
-           </Header>
-           <Content>
-            <form onSubmit={handleSubmit(onSubmitFunction)}>
-            <Input
-              register={register}
-              name="name"
-              placeholder="Tecnologia"
-             />
-            <SelectModal
-              register={register}
-              name="select"
-            />
-               <Button type="submit">Adicionar</Button>
-            </form>
-           </Content>
-       </Container>
-    </AnimationContainer>
+    const hide = async(ms) => {
+
+        await new Promise(response => setTimeout(response, ms))
+        setModal('none')
+    }
+
+    return modal === 'appear' ? (
+        <AnimationContainer modal={modal}>
+           <Container>
+               <Header>
+                   <span>Cadastrar Tecnologia</span>
+                   <Button size onClick={() => setModal('disappear')}>X</Button>
+               </Header>
+               <Content>
+                <form onSubmit={handleSubmit(onSubmitFunction)}>
+                <Input
+                  register={register}
+                  name="name"
+                  placeholder="Tecnologia"
+                 />
+                <SelectModal
+                  register={register}
+                  name="select"
+                />
+                   <Button type="submit">Adicionar</Button>
+                </form>
+               </Content>
+           </Container>
+        </AnimationContainer>
+    ) : modal === 'disappear' ? (
+        <DisappearContainer>
+           <Container>
+               <Header>
+                   <span>Cadastrar Tecnologia</span>
+                   <Button size onClick={hide(900)}>X</Button>
+               </Header>
+               <Content>
+                <form>
+                <Input
+                  register={register}
+                  name="name"
+                  placeholder="Tecnologia"
+                 />
+                <SelectModal
+                  register={register}
+                  name="select"
+                />
+                   <Button>Adicionar</Button>
+                </form>
+               </Content>
+           </Container>
+        </DisappearContainer>
     ) : (
         <></>
     )

@@ -14,8 +14,8 @@ import { ModalEdit } from '../Modal-edit';
 export const Dashboard = ({ userAuth, setUserAuth }) => {
   const [techs, setTechs] = useState('')
 
-  const [modal, setModal] = useState(false)
-  const [modalEdit, setModalEdit] = useState(false)
+  const [modal, setModal] = useState('none')
+  const [modalEdit, setModalEdit] = useState('none')
   const [techId, setTechId] = useState('')
   const [techTitle, setTechTitle] = useState('')
   
@@ -56,10 +56,10 @@ export const Dashboard = ({ userAuth, setUserAuth }) => {
    <Container>
      <TechInfo>
        <h3>Tecnologias</h3>
-       <Button size onClick={() => setModal(true)}>+</Button>
+       <Button size onClick={() => setModal('appear')}>+</Button>
      </TechInfo>
      <TechContainer>
-       <Modal modal={modal} setModal={setModal}/>
+       <Modal modal={modal} setModal={setModal} />
        <ModalEdit modalEdit={modalEdit} setModalEdit={setModalEdit} techId={techId} setTechId={setTechId} techTitle={techTitle} setTechTitle={setTechTitle}/>
         {techs !== '' ? techs.map((tech) => (
           <TechCard 
@@ -67,7 +67,7 @@ export const Dashboard = ({ userAuth, setUserAuth }) => {
           title={tech.title}
           status={tech.status}
           onClick={() => {
-            setModalEdit(true)
+            setModalEdit('appear')
             setTechId(tech.id)
             setTechTitle(tech.title)
           }}
