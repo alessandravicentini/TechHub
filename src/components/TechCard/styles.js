@@ -21,6 +21,14 @@ transition: 0.5s;
 
 cursor: pointer;
 
+> p{
+  width: 50%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 > span{
   font-size: 12px;
   color: var(--grey-1)
