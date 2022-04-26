@@ -16,6 +16,12 @@ export const ModalEdit = ({ modalEdit, setModalEdit, techId, setTechId, techTitl
 
     const { register, handleSubmit } = useForm()
 
+    const hide = async(ms) => {
+
+        await new Promise(response => setTimeout(response, ms))
+        setModalEdit('none')
+    }
+
     const onSubmitFunction = ({ select }) => {
         const tech = { status: select }
 
@@ -27,9 +33,9 @@ export const ModalEdit = ({ modalEdit, setModalEdit, techId, setTechId, techTitl
         })
         .then((response) => {
             toast.success("Tecnologia editada com sucesso!")
-            setModalEdit(false)
             setTechId('')
             setTechTitle('')
+            setModalEdit('disappear')
         })
         .catch((error) => toast.error("Ops! Algo deu errado"))
     }
@@ -43,16 +49,10 @@ export const ModalEdit = ({ modalEdit, setModalEdit, techId, setTechId, techTitl
             })
             .then((response) => {
                 toast.success("Tecnologia deletada com sucesso!")
-                setModalEdit(false)
                 setTechId('')
+                setModalEdit('disappear')
             })
             .catch((error) => toast.error("Ops! Algo deu errado"))
-        }
-
-        const hide = async(ms) => {
-
-            await new Promise(response => setTimeout(response, ms))
-            setModalEdit('none')
         }
 
         return modalEdit === 'appear' ? (
