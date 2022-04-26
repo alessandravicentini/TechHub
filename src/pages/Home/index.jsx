@@ -8,6 +8,8 @@ import { Container, Content } from './styles';
 
 export const Home = () => {
 
+  localStorage.clear()
+
   const history = useHistory()
 
   const handleNavigation = (path) => {
