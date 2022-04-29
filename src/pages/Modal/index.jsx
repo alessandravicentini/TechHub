@@ -62,11 +62,11 @@ export const Modal = ({ modal, setModal }) => {
            </Container>
         </AnimationContainer>
     ) : modal === 'disappear' ? (
-        <DisappearContainer>
+        <DisappearContainer onLoad={hide(501)}>
            <Container>
                <Header>
                    <span>Cadastrar Tecnologia</span>
-                   <Button size onClick={hide(900)}>X</Button>
+                   <Button size>X</Button>
                </Header>
                <Content>
                 <form>

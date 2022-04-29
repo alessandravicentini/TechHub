@@ -134,7 +134,7 @@ height: 370px;
 
 export const DisappearContainer = styled.div`
 
-animation: ${disappear} 1s;
+animation: ${disappear} 700ms;
 
 display: flex;
 flex-direction: column;
